@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Dice from "./Dice";
+import Scoreboard from "./Scoreboard";
 import { v4 as uuidv4 } from "uuid";
 import "./stylesheets/Yahtzee.css";
 
@@ -14,13 +15,17 @@ class Yahtzee extends Component {
     this.state = {
       diceValues: initialState,
       rollsRemaining: 2,
+      possibleScores: this.updatePossibleScores(initialState),
+      score: 0,
+      round: 1,
+      clickedCategories: [],
     };
   }
   generateRandomValues = (initialState) => {
     const returnThis = [...initialState];
     for (let i = 0; i < 5; i++) {
       if (!initialState[i].isFrozen) {
-        const randomValue = Math.floor(Math.random() * 5) + 1;
+        const randomValue = Math.floor(Math.random() * 6) + 1;
         let text = "";
         switch (randomValue) {
           case 1:
@@ -52,13 +57,28 @@ class Yahtzee extends Component {
   };
   rollDice = () => {
     if (this.state.rollsRemaining > 0) {
-      const newState = this.generateRandomValues(this.state.diceValues);
-      this.setState((curState) => {
-        return {
-          diceValues: newState,
-          rollsRemaining: curState.rollsRemaining - 1,
-        };
-      });
+      if (this.state.rollsRemaining === 1) {
+        const newState = this.generateRandomValues(this.state.diceValues);
+        newState.forEach((ele) => {
+          ele.isFrozen = true;
+        });
+        this.setState((curState) => {
+          return {
+            diceValues: newState,
+            rollsRemaining: curState.rollsRemaining - 1,
+            possibleScores: this.updatePossibleScores(newState),
+          };
+        });
+      } else {
+        const newState = this.generateRandomValues(this.state.diceValues);
+        this.setState((curState) => {
+          return {
+            diceValues: newState,
+            rollsRemaining: curState.rollsRemaining - 1,
+            possibleScores: this.updatePossibleScores(newState),
+          };
+        });
+      }
     }
   };
   freezeDie = (e) => {
@@ -70,6 +90,108 @@ class Yahtzee extends Component {
       newState[freezeThisIndex].isFrozen === false ? true : false;
     this.setState({ diceValues: newState });
   };
+  doesArrayContain = (arr, target) => target.every((v) => arr.includes(v));
+  updatePossibleScores = (curStateValues) => {
+    const values = curStateValues.map((ele) => {
+      return ele.num;
+    });
+    const returnThis = {
+      Ones:
+        1 *
+        values.filter((ele) => {
+          return ele === 1;
+        }).length,
+      Twos:
+        2 *
+        values.filter((ele) => {
+          return ele === 2;
+        }).length,
+      Threes:
+        3 *
+        values.filter((ele) => {
+          return ele === 3;
+        }).length,
+      Fours:
+        4 *
+        values.filter((ele) => {
+          return ele === 4;
+        }).length,
+      Fives:
+        5 *
+        values.filter((ele) => {
+          return ele === 5;
+        }).length,
+      Sixes:
+        6 *
+        values.filter((ele) => {
+          return ele === 6;
+        }).length,
+      "3 of Kind": values.some((ele) => {
+        return (
+          values.filter((ele2) => {
+            return ele === ele2;
+          }).length >= 3
+        );
+      })
+        ? values.reduce((total, ele) => {
+            return ele + total;
+          }, 0)
+        : 0,
+      "4 of Kind": values.some((ele) => {
+        return (
+          values.filter((ele2) => {
+            return ele === ele2;
+          }).length >= 4
+        );
+      })
+        ? values.reduce((total, ele) => {
+            return ele + total;
+          }, 0)
+        : 0,
+      "Full House": [...new Set(values)].length === 2 ? 25 : 0,
+      "Small Straight":
+        this.doesArrayContain(values, [1, 2, 3, 4]) ||
+        this.doesArrayContain(values, [2, 3, 4, 5]) ||
+        this.doesArrayContain(values, [3, 4, 5, 6])
+          ? 30
+          : 0,
+      "Large Straight":
+        this.doesArrayContain(values, [1, 2, 3, 4, 5]) ||
+        this.doesArrayContain(values, [2, 3, 4, 5, 6])
+          ? 40
+          : 0,
+      Yahtzee: [...new Set(values)].length === 1 ? 50 : 0,
+      Chance: values.reduce((total, ele) => {
+        return ele + total;
+      }, 0),
+    };
+    return returnThis;
+  };
+  updateScore = (e) => {
+    const setThisAsScore = this.state.possibleScores[
+      e.target.getAttribute("data-id")
+    ];
+    let category = e.target.getAttribute("data-id");
+    if (this.state.clickedCategories.length <= 12) {
+      let initialState = [];
+      for (let i = 0; i < 5; i++) {
+        initialState.push({ id: uuidv4(), isFrozen: false });
+      }
+
+      initialState = this.generateRandomValues(initialState);
+      this.setState((curState) => {
+        return {
+          diceValues: initialState,
+          rollsRemaining: 2,
+          possibleScores: this.updatePossibleScores(initialState),
+          score: curState.score + setThisAsScore,
+          clickedCategories: [...curState.clickedCategories, category],
+        };
+      });
+    } else {
+    }
+  };
+
   render() {
     return (
       <div className="Yahtzee">
@@ -79,6 +201,12 @@ class Yahtzee extends Component {
           rollDice={this.rollDice}
           freezeDie={this.freezeDie}
           rollsRemaining={this.state.rollsRemaining}
+        />
+        <Scoreboard
+          possibleScores={this.state.possibleScores}
+          updateScore={this.updateScore}
+          score={this.state.score}
+          clickedCategories={this.state.clickedCategories}
         />
       </div>
     );

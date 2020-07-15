@@ -13,6 +13,10 @@ body {
   font-family: "Space Mono Bold";
   src: url("../fonts/SpaceMono-Bold.ttf");
 }
+@font-face {
+  font-family: "Space Mono Italic";
+  src: url("../fonts/SpaceMono-Italic.ttf");
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;

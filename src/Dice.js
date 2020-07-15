@@ -10,7 +10,7 @@ class Dice extends Component {
           return (
             <i
               className={`fas fa-dice-${value.text} Dice-Die ${
-                value.isFrozen ? "Dice-Frozen" : null
+                value.isFrozen ? "Dice-Frozen" : ""
               }`}
               key={value.id}
               data-id={value.id}
@@ -21,7 +21,7 @@ class Dice extends Component {
         <div>
           <button
             className={`Dice-RollButton ${
-              this.props.rollsRemaining < 1 ? "disabled" : null
+              this.props.rollsRemaining < 1 ? "disabled" : ""
             }`}
             onClick={this.props.rollDice}
           >

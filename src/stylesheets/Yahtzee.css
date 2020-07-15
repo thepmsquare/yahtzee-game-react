@@ -1,0 +1,9 @@
+.Yahtzee {
+  width: 90%;
+  margin: auto;
+}
+@media (min-width: 1000px) {
+  .Yahtzee {
+    width: 50%;
+  }
+}
