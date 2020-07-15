@@ -1,0 +1,17 @@
+.Dice {
+  font-size: 2.5rem;
+}
+.Dice-Die {
+  margin: 1rem;
+}
+.Dice-Frozen {
+  color: gray;
+}
+.Dice-RollButton {
+  font-family: inherit;
+  background-color: inherit;
+  border: 1px solid black;
+}
+.Dice-RollButton.disabled {
+  background-color: lightgrey;
+}
