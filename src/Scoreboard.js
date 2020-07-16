@@ -6,7 +6,7 @@ class Scoreboard extends Component {
   render() {
     return (
       <div className="Scoreboard">
-        <h1>Upper</h1>
+        <h2>Upper</h2>
         <div
           onClick={this.props.updateScore}
           data-id="Ones"
@@ -109,7 +109,7 @@ class Scoreboard extends Component {
             </span>
           </span>
         </div>
-        <h1>Lower</h1>
+        <h2>Lower</h2>
         <div
           onClick={this.props.updateScore}
           data-id="3 of Kind"
@@ -253,11 +253,11 @@ class Scoreboard extends Component {
             </span>
           </span>
         </div>
-        <h1 id="Scoreboard-score">
-          {this.props.clickedCategories.length === 13 ? "Final " : ""}Score:{" "}
-          {this.props.score}
-        </h1>
+
         <hr />
+        <button className="Scoreboard-startover" onClick={this.props.startOver}>
+          Start Over?
+        </button>
       </div>
     );
   }

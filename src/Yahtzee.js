@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Dice from "./Dice";
 import Scoreboard from "./Scoreboard";
+import Rules from "./Rules";
 import { v4 as uuidv4 } from "uuid";
 import "./stylesheets/Yahtzee.css";
 
@@ -17,7 +18,6 @@ class Yahtzee extends Component {
       rollsRemaining: 2,
       possibleScores: this.updatePossibleScores(initialState),
       score: 0,
-      round: 1,
       clickedCategories: [],
     };
   }
@@ -148,7 +148,23 @@ class Yahtzee extends Component {
             return ele + total;
           }, 0)
         : 0,
-      "Full House": [...new Set(values)].length === 2 ? 25 : 0,
+      "Full House":
+        values.some((ele) => {
+          return (
+            values.filter((ele2) => {
+              return ele === ele2;
+            }).length === 3
+          );
+        }) &&
+        values.some((ele) => {
+          return (
+            values.filter((ele2) => {
+              return ele === ele2;
+            }).length === 2
+          );
+        })
+          ? 25
+          : 0,
       "Small Straight":
         this.doesArrayContain(values, [1, 2, 3, 4]) ||
         this.doesArrayContain(values, [2, 3, 4, 5]) ||
@@ -191,7 +207,20 @@ class Yahtzee extends Component {
     } else {
     }
   };
-
+  startOver = () => {
+    let initialState = [];
+    for (let i = 0; i < 5; i++) {
+      initialState.push({ id: uuidv4(), isFrozen: false });
+    }
+    initialState = this.generateRandomValues(initialState);
+    this.setState({
+      diceValues: initialState,
+      rollsRemaining: 2,
+      possibleScores: this.updatePossibleScores(initialState),
+      score: 0,
+      clickedCategories: [],
+    });
+  };
   render() {
     return (
       <div className="Yahtzee">
@@ -202,12 +231,24 @@ class Yahtzee extends Component {
           freezeDie={this.freezeDie}
           rollsRemaining={this.state.rollsRemaining}
         />
+        {this.state.clickedCategories.length <= 12 ? (
+          <h2>Round {this.state.clickedCategories.length + 1}</h2>
+        ) : (
+          ""
+        )}
+        <h1 class="Yahtzee-score">
+          {this.state.clickedCategories.length === 13 ? "Final " : ""}Score:{" "}
+          {this.state.score}
+        </h1>
+        <a href="#Rules">Rules</a>
+
         <Scoreboard
           possibleScores={this.state.possibleScores}
           updateScore={this.updateScore}
-          score={this.state.score}
           clickedCategories={this.state.clickedCategories}
+          startOver={this.startOver}
         />
+        <Rules />
       </div>
     );
   }

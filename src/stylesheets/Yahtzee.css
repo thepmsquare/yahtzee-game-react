@@ -1,6 +1,10 @@
 .Yahtzee {
   width: 90%;
   margin: auto;
+  height: 100%;
+}
+.Yahtzee-score {
+  margin: 0;
 }
 @media (min-width: 1000px) {
   .Yahtzee {
