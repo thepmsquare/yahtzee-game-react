@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/thepmsquare/yahtzee-game-react/static/css/main.59f4c3f5.chunk.css",
+    "main.js": "/thepmsquare/yahtzee-game-react/static/js/main.6db48a89.chunk.js",
+    "main.js.map": "/thepmsquare/yahtzee-game-react/static/js/main.6db48a89.chunk.js.map",
+    "runtime-main.js": "/thepmsquare/yahtzee-game-react/static/js/runtime-main.0da2979e.js",
+    "runtime-main.js.map": "/thepmsquare/yahtzee-game-react/static/js/runtime-main.0da2979e.js.map",
+    "static/js/2.b74b93d1.chunk.js": "/thepmsquare/yahtzee-game-react/static/js/2.b74b93d1.chunk.js",
+    "static/js/2.b74b93d1.chunk.js.map": "/thepmsquare/yahtzee-game-react/static/js/2.b74b93d1.chunk.js.map",
+    "index.html": "/thepmsquare/yahtzee-game-react/index.html",
+    "precache-manifest.1bc920691b0b1982ecb84d004117e7e8.js": "/thepmsquare/yahtzee-game-react/precache-manifest.1bc920691b0b1982ecb84d004117e7e8.js",
+    "service-worker.js": "/thepmsquare/yahtzee-game-react/service-worker.js",
+    "static/css/main.59f4c3f5.chunk.css.map": "/thepmsquare/yahtzee-game-react/static/css/main.59f4c3f5.chunk.css.map",
+    "static/js/2.b74b93d1.chunk.js.LICENSE.txt": "/thepmsquare/yahtzee-game-react/static/js/2.b74b93d1.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/thepmsquare/yahtzee-game-react/static/media/SpaceMono-Regular.52eb73db.ttf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0da2979e.js",
+    "static/js/2.b74b93d1.chunk.js",
+    "static/css/main.59f4c3f5.chunk.css",
+    "static/js/main.6db48a89.chunk.js"
+  ]
+}
