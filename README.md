@@ -1,4 +1,4 @@
-# yahtzee-game-react (WIP)
+# yahtzee-game-react
 
 Yahtzee game made with ReactJS.
 
