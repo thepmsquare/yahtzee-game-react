@@ -1,7 +1,9 @@
 .Scoreboard div {
   display: grid;
   grid-template-columns: 3fr 2fr;
-  background-color: greenyellow;
+  /* less nice color  */
+  background-color: #92e2e9;
+  /* dark color  */
   border: 1px solid black;
   margin: 1rem 0;
   padding: 0 0.5rem;
@@ -15,8 +17,10 @@
   pointer-events: none;
 }
 .Scoreboard-disabled {
-  background-color: grey !important;
+  /* dull color  */
+  background-color: #e0ffff !important;
   pointer-events: none;
+  text-decoration: line-through;
 }
 .Scoreboard-description,
 .Scoreboard-curScore {
@@ -27,7 +31,9 @@
 .Scoreboard-startover {
   background-color: inherit;
   font-size: inherit;
+  /* dark color  */
   border: 1px solid black;
   font-family: inherit;
   margin-bottom: 1rem;
+  color: inherit;
 }

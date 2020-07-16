@@ -221,34 +221,49 @@ class Yahtzee extends Component {
       clickedCategories: [],
     });
   };
+  componentDidMount() {
+    let offsetByThisMuch = getComputedStyle(
+      document.querySelector(".Yahtzee-fixed")
+    ).height;
+    document.querySelector(
+      ".Yahtzee-notfixed"
+    ).style.paddingTop = offsetByThisMuch;
+  }
   render() {
     return (
       <div className="Yahtzee">
-        <h1>Yahtzee</h1>
-        <Dice
-          diceValues={this.state.diceValues}
-          rollDice={this.rollDice}
-          freezeDie={this.freezeDie}
-          rollsRemaining={this.state.rollsRemaining}
-        />
-        {this.state.clickedCategories.length <= 12 ? (
-          <h2>Round {this.state.clickedCategories.length + 1}</h2>
-        ) : (
-          ""
-        )}
-        <h1 class="Yahtzee-score">
-          {this.state.clickedCategories.length === 13 ? "Final " : ""}Score:{" "}
-          {this.state.score}
-        </h1>
-        <a href="#Rules">Rules</a>
-
-        <Scoreboard
-          possibleScores={this.state.possibleScores}
-          updateScore={this.updateScore}
-          clickedCategories={this.state.clickedCategories}
-          startOver={this.startOver}
-        />
-        <Rules />
+        <div className="Yahtzee-fixed">
+          <h1>Yahtzee</h1>
+          <Dice
+            diceValues={this.state.diceValues}
+            rollDice={this.rollDice}
+            freezeDie={this.freezeDie}
+            rollsRemaining={this.state.rollsRemaining}
+          />
+          {this.state.clickedCategories.length <= 12 ? (
+            <h2 className="Yahtzee-round">
+              Round {this.state.clickedCategories.length + 1}
+            </h2>
+          ) : (
+            ""
+          )}
+          <h1 className="Yahtzee-score">
+            {this.state.clickedCategories.length === 13 ? "Final " : ""}Score:{" "}
+            {this.state.score}
+          </h1>
+          <a href="#Rules" className="Yahtzee-rules">
+            Rules
+          </a>
+        </div>
+        <div className="Yahtzee-notfixed">
+          <Scoreboard
+            possibleScores={this.state.possibleScores}
+            updateScore={this.updateScore}
+            clickedCategories={this.state.clickedCategories}
+            startOver={this.startOver}
+          />
+          <Rules />
+        </div>
       </div>
     );
   }

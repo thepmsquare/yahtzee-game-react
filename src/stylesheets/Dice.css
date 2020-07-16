@@ -1,17 +1,29 @@
 .Dice {
   font-size: 2.5rem;
-}
-.Dice-Die {
-  margin: 1rem;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
 }
 .Dice-Frozen {
-  color: gray;
+  /* dull color  */
+  color: #e0ffff;
 }
 .Dice-RollButton {
   font-family: inherit;
   background-color: inherit;
+  /* dark color  */
   border: 1px solid black;
+  grid-column: 1 / span 5;
+  width: fit-content;
+  margin: 1rem auto 0.25rem auto;
+  color: inherit;
 }
 .Dice-RollButton.disabled {
-  background-color: lightgrey;
+  /* dull color  */
+  background-color: #e0ffff;
+}
+@media (min-width: 1000px) {
+  .Dice {
+    width: 50%;
+    margin: auto;
+  }
 }

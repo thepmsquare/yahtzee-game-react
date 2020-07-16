@@ -1,3 +1,6 @@
 .App {
   text-align: center;
+  /* more nice color  */
+  background-color: #b9e8f0;
+  user-select: none;
 }

@@ -3,11 +3,27 @@
   margin: auto;
   height: 100%;
 }
-.Yahtzee-score {
+.Yahtzee-score,
+.Yahtzee-round {
   margin: 0;
+}
+.Yahtzee-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* more nice color  */
+  background-color: #b9e8f0;
+}
+.Yahtzee-rules {
+  color: inherit;
 }
 @media (min-width: 1000px) {
   .Yahtzee {
     width: 50%;
+  }
+  .Yahtzee-fixed {
+    width: 100%;
+    margin: auto;
   }
 }

@@ -18,16 +18,15 @@ class Dice extends Component {
             ></i>
           );
         })}
-        <div>
-          <button
-            className={`Dice-RollButton ${
-              this.props.rollsRemaining < 1 ? "disabled" : ""
-            }`}
-            onClick={this.props.rollDice}
-          >
-            {this.props.rollsRemaining} Rolls Left
-          </button>
-        </div>
+
+        <button
+          className={`Dice-RollButton ${
+            this.props.rollsRemaining < 1 ? "disabled" : ""
+          }`}
+          onClick={this.props.rollDice}
+        >
+          {this.props.rollsRemaining} Rolls Left
+        </button>
       </div>
     );
   }
