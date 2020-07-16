@@ -12,6 +12,9 @@ class Yahtzee extends Component {
     for (let i = 0; i < 5; i++) {
       initialState.push({ id: uuidv4(), isFrozen: false });
     }
+    window.addEventListener("resize", () => {
+      this.offsetNotFixed();
+    });
     initialState = this.generateRandomValues(initialState);
     this.state = {
       diceValues: initialState,
@@ -221,13 +224,16 @@ class Yahtzee extends Component {
       clickedCategories: [],
     });
   };
-  componentDidMount() {
+  offsetNotFixed = () => {
     let offsetByThisMuch = getComputedStyle(
       document.querySelector(".Yahtzee-fixed")
     ).height;
     document.querySelector(
       ".Yahtzee-notfixed"
     ).style.paddingTop = offsetByThisMuch;
+  };
+  componentDidMount() {
+    this.offsetNotFixed();
   }
   render() {
     return (
@@ -251,9 +257,8 @@ class Yahtzee extends Component {
             {this.state.clickedCategories.length === 13 ? "Final " : ""}Score:{" "}
             {this.state.score}
           </h1>
-          <a href="#Rules" className="Yahtzee-rules">
-            Rules
-          </a>
+          <p className="Yahtzee-rules">Rules Below</p>
+          <hr />
         </div>
         <div className="Yahtzee-notfixed">
           <Scoreboard
