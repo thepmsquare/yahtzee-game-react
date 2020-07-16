@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/yahtzee-game-react/static/css/main.84e6b455.chunk.css",
-    "main.js": "/yahtzee-game-react/static/js/main.38ff09d4.chunk.js",
-    "main.js.map": "/yahtzee-game-react/static/js/main.38ff09d4.chunk.js.map",
+    "main.css": "/yahtzee-game-react/static/css/main.067de04e.chunk.css",
+    "main.js": "/yahtzee-game-react/static/js/main.8f6d9576.chunk.js",
+    "main.js.map": "/yahtzee-game-react/static/js/main.8f6d9576.chunk.js.map",
     "runtime-main.js": "/yahtzee-game-react/static/js/runtime-main.db13e9ce.js",
     "runtime-main.js.map": "/yahtzee-game-react/static/js/runtime-main.db13e9ce.js.map",
     "static/js/2.b74b93d1.chunk.js": "/yahtzee-game-react/static/js/2.b74b93d1.chunk.js",
     "static/js/2.b74b93d1.chunk.js.map": "/yahtzee-game-react/static/js/2.b74b93d1.chunk.js.map",
     "index.html": "/yahtzee-game-react/index.html",
-    "precache-manifest.70d0af65db045a1c652b53738374939e.js": "/yahtzee-game-react/precache-manifest.70d0af65db045a1c652b53738374939e.js",
+    "precache-manifest.08c78928fb7388a8f470aaa5ec41fa79.js": "/yahtzee-game-react/precache-manifest.08c78928fb7388a8f470aaa5ec41fa79.js",
     "service-worker.js": "/yahtzee-game-react/service-worker.js",
-    "static/css/main.84e6b455.chunk.css.map": "/yahtzee-game-react/static/css/main.84e6b455.chunk.css.map",
+    "static/css/main.067de04e.chunk.css.map": "/yahtzee-game-react/static/css/main.067de04e.chunk.css.map",
     "static/js/2.b74b93d1.chunk.js.LICENSE.txt": "/yahtzee-game-react/static/js/2.b74b93d1.chunk.js.LICENSE.txt",
     "static/media/index.css": "/yahtzee-game-react/static/media/SpaceMono-Regular.52eb73db.ttf"
   },
   "entrypoints": [
     "static/js/runtime-main.db13e9ce.js",
     "static/js/2.b74b93d1.chunk.js",
-    "static/css/main.84e6b455.chunk.css",
-    "static/js/main.38ff09d4.chunk.js"
+    "static/css/main.067de04e.chunk.css",
+    "static/js/main.8f6d9576.chunk.js"
   ]
 }
