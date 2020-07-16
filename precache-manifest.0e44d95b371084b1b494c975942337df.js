@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "4e4c924b591464def57081d21bf9b89e",
+    "revision": "2ce3dbad60fb49a24b0592dd6ee9a313",
     "url": "/thepmsquare/yahtzee-game-react/index.html"
   },
   {
-    "revision": "22ebafbc45c118786e74",
+    "revision": "b6c39fa71129fab56b0b",
     "url": "/thepmsquare/yahtzee-game-react/static/css/main.59f4c3f5.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/thepmsquare/yahtzee-game-react/static/js/2.b74b93d1.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "22ebafbc45c118786e74",
-    "url": "/thepmsquare/yahtzee-game-react/static/js/main.6db48a89.chunk.js"
+    "revision": "b6c39fa71129fab56b0b",
+    "url": "/thepmsquare/yahtzee-game-react/static/js/main.0abdfe29.chunk.js"
   },
   {
     "revision": "0829eb6d968454929ca5",

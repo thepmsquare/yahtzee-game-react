@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/thepmsquare/yahtzee-game-react/precache-manifest.1bc920691b0b1982ecb84d004117e7e8.js"
+  "/thepmsquare/yahtzee-game-react/precache-manifest.0e44d95b371084b1b494c975942337df.js"
 );
 
 self.addEventListener('message', (event) => {
